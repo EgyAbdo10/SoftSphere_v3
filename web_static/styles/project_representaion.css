@@ -1,0 +1,61 @@
+div.project_representation {
+    height: 600px;
+    display:flex;
+    justify-content: center;
+    padding-top: 50px;
+    /* position: relative; */
+}
+
+div.project_representation .poster {
+    background-color: rgb(255, 0, 0);
+    width: 350px;
+    height: 400px;
+    position: relative;
+    left: 70px;
+    top:10px;
+    box-shadow: -1px 5px 5px 2px rgb(38, 37, 37);
+    border-radius: 40px;
+}
+
+section.info .name {
+    font-size: 3rem;
+    font-family: "bubas", sans-serif;
+    color: rgb(5, 173, 25);
+}
+
+section.info {
+    background-color: rgb(252, 252, 252);
+    width: 350px;
+    min-height: 500px;
+    max-height: 600px;
+    position:relative;
+    z-index: 2;
+    top: 50px;
+    box-shadow: -1px 5px 5px 2px rgb(38, 37, 37);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.info p {
+/* font-size: 1rem; */
+    font-style: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(2, 134, 90);
+}
+
+section.info span {
+    color: black;
+    font-family: "Archivo", sans-serif;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    /* padding-left: 70px; */
+    display: flex;
+    /* gap: 10px; */
+    justify-content: center;
+    gap: 20px;
+}

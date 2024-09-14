@@ -1,0 +1,96 @@
+.explore_text {
+    font-family: "Bebas Neue", 'Times New Roman', Times, serif ;
+    font-size: 5rem;
+    /* width: 100px; */
+    height: 100px;
+    /* position: relative; */
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+section.explore {
+    /* background-color: blue; */
+    height: 600px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    /* padding-top: 30px; */
+}
+
+section.explore article {
+    width: 350px;
+    height: 550px;
+    background-color: antiquewhite;
+    border-radius: 80px;
+    overflow: hidden;
+    box-shadow: -1px 5px 5px 2px rgb(38, 37, 37);
+}
+
+section.explore article .poster {
+    background-color: rgb(0, 255, 255);
+    height: 200px;
+}
+
+section.explore article.project-X .poster{
+    background-image: url("../images/project-X_poster.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+section.explore article.edumy .poster{
+    background-image: url("../images/edumy_poster.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+section.explore article.fedora .poster{
+    background-image: url("../images/fedora_poster.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+section.explore article.stormy .poster{
+    background-image: url("../images/stormy_poster.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+section.explore article .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+section.explore article .project-name {
+    font-family: "New Amsterdam", sans-serif;
+    font-size: 50px;
+}
+
+section.explore article .tools {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+section.explore article .description_text {
+    /* height: 70px; */
+    /* white-space: nowrap; */
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow:hidden;
+    text-overflow: ellipsis; */
+    height:80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

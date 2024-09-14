@@ -1,0 +1,125 @@
+.search-bar {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    font-size: 1rem;
+    width:500px;
+    height: 60px;
+    display: block;
+    background-color: rgb(250, 250, 250);
+    position: relative;
+    display: flex;
+}
+
+.search-bar .category_filter {
+    width:40%;
+    border-top-left-radius: 25px;
+    /* border-bottom-left-radius: 25px; */
+    background-color: aqua;
+    padding-left: 20px;
+    border-right: 2px solid black;
+    font-size: 1.8rem;
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 10px;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar .tool_filter {
+    width: 40%;
+    background-color: aquamarine;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar .drop_down {
+    background-color: rgb(154, 228, 138);
+    position: absolute;
+    top: 100%;
+    width: 160px;
+    right: 20px;
+    z-index: 2;
+    /* left: 0%; */
+    border-radius: 2px;
+    visibility: hidden; /* change this in js */
+}
+
+.category_filter:hover .drop_down {
+    visibility: visible;
+}
+
+.tool_filter:hover .drop_down {
+    visibility: visible;
+}
+
+.drop_down ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    font-size: 1.3rem;
+    position: relative;
+    align-content: space-around;
+}
+
+.drop_down ul li {
+    position: relative;
+    height: 20px;
+    margin-top:10px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    /* margin-bottom: 10px; */
+    border-bottom: 2px solid black;
+    box-sizing: content-box;
+}
+
+.drop_down ul li span {
+    left: 5px;
+    position: absolute;
+}
+
+.drop_down ul li input {
+    right: 10px;
+    position: absolute;
+}
+
+button.search-icon {
+    /* height: 50px; */
+    width: 20%;
+    border-top-right-radius: 25px;
+    /* border-radius: 25px; */
+    background-color: greenyellow;
+    /* position: relative; */
+    display: block;
+    /* left: 400px; */
+    /* top: -50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -1px 2px 2px black;
+    border: 0px;
+    cursor: pointer;
+}
+
+button.search-icon:hover {
+    /* box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); */
+    background-color: rgb(148, 221, 38);
+}
+
+button.search-icon div {
+    background-image: url("../images/magnifying-glass.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+
+}
+

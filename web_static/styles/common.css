@@ -1,0 +1,31 @@
+div.welcome {
+    background-color: #013b12ff;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 50px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 5px;
+}
+
+div.welcome h1 {
+    color: rgb(0, 255, 187);
+    font-family: "SUSE", sans-serif;
+    font-style: bold;
+    font-size: 2.5rem;
+    /* background-color: blue; */
+    position: relative;
+    bottom: 40px;
+}
+
+div.welcome h1 span {
+    color: rgb(179, 235, 95);
+}
+
+
