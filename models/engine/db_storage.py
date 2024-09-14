@@ -33,7 +33,7 @@ class DBStorage:
         db = getenv("SOS_DB")
         if not db:
             db = "SOS_db_dev"
-        
+        print(f"-----------{db}-----------")
         
         self.__engine = create_engine(
             f"""mysql+mysqldb://{user}:{passwd}@{host}/{db}""",
@@ -97,7 +97,10 @@ class DBStorage:
         
 
     def find(self, cls_name, id):
-        """search anf find objects by class and id of an object"""
+        """
+        search anf find objects by class and id of an object
+        
+        """
         obj = self.__session.query(
                 cls_names[cls_name]).filter_by(id=id).first()
         return obj

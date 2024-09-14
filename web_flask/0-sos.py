@@ -17,7 +17,7 @@ def home():
     categories = sorted(categories, key=lambda k: k.name)
     projects = storage.all("Project").values()
     projects = sorted(projects, key=lambda k: k.name)
-    users = storage.all("User").values()
+    # users = storage.all("User").values()
     return render_template("0-index.html",
                            categories=categories,
                            projects=projects,

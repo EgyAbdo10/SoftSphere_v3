@@ -33,10 +33,9 @@ section.explore article {
 section.explore article .poster {
     background-color: rgb(0, 255, 255);
     height: 200px;
-    width: 100%;
 }
 
-/* section.explore article.project-X .poster{
+section.explore article.project-X .poster{
     background-image: url("../images/project-X_poster.jpg");
     background-size: cover;
     background-position: center;
@@ -58,7 +57,7 @@ section.explore article.stormy .poster{
     background-image: url("../images/stormy_poster.jpg");
     background-size: cover;
     background-position: center;
-} */
+}
 
 section.explore article .data {
     display: flex;

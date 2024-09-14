@@ -74,18 +74,12 @@ class SoftSCommand(cmd.Cmd):
                         attrs_dict["tools"] = tool_objs
 
                 new_obj = cls_names[cls_name](**attrs_dict)
-                try:
-                    new_obj.save()
+
+                error = new_obj.save()
+                if error:
+                    print(error)
+                else:
                     print(new_obj.to_dict())
-                except DataError as e:
-                    # get the only first line of the error
-                    print("** please make sure that your data is right **")
-                    storage.reload()
-                except IntegrityError as e:
-                    print("** please make sure your data is unique **")
-                    # get the only first line of the error
-                    print(str(e)[:str(e).index("\n")])
-                    storage.reload()
                           
             else:
                 print("**class doesn't exist**")
@@ -137,16 +131,10 @@ class SoftSCommand(cmd.Cmd):
 
                     for attr, val in attrs_dict.items():
                         setattr(obj, attr, val)
-                    obj.save()
-                except DataError as e:
-                    # get the only first line of the error
-                    print("** please make sure that your data is right **")
-                    storage.reload()
-                except IntegrityError as e:
-                    print("** please make sure your data is unique **")
-                    # get the only first line of the error
-                    print(str(e)[:str(e).index("\n")])
-                    storage.reload()
+
+                    error = obj.save()
+                    if error:
+                        print(error)
                 except Exception as e:
                     print("**not valid atributes dictionary**")
         

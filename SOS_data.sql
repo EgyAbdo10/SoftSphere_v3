@@ -65,7 +65,7 @@ CREATE TABLE `project_tools` (
 
 LOCK TABLES `project_tools` WRITE;
 /*!40000 ALTER TABLE `project_tools` DISABLE KEYS */;
-INSERT INTO `project_tools` VALUES ('07f1fa56-3984-460b-ac6d-ff48ea46d227','5a2805d6-7b49-44fe-a7bb-25ad59fd3350',NULL),('07f1fa56-3984-460b-ac6d-ff48ea46d227','d5449a4a-0238-484b-8879-5963008996bb',NULL),('47331846-ed58-4407-8aae-2c13bcf954ee','21eefba7-7717-45d5-b175-eaf3f74e3f95',NULL),('47331846-ed58-4407-8aae-2c13bcf954ee','e65fe920-7ac4-4642-b3ac-8fd407ebb2ca',NULL),('6451c292-c452-4d88-8ec4-e1d9b9d6188a','36d01861-bf78-4e0e-a14b-8f1dd167c6dd',NULL),('6451c292-c452-4d88-8ec4-e1d9b9d6188a','d9cdeb50-bbab-484a-8d8e-13f8c421f51f',NULL),('722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','36d01861-bf78-4e0e-a14b-8f1dd167c6dd',NULL),('722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','d9cdeb50-bbab-484a-8d8e-13f8c421f51f',NULL);
+INSERT INTO `project_tools` VALUES ('07f1fa56-3984-460b-ac6d-ff48ea46d227','5a2805d6-7b49-44fe-a7bb-25ad59fd3350',NULL),('07f1fa56-3984-460b-ac6d-ff48ea46d227','d5449a4a-0238-484b-8879-5963008996bb',NULL),('36431da4-6745-4d99-a167-a40da635424a','28657e8c-e8a8-4acc-b954-bf8e90956187',NULL),('36431da4-6745-4d99-a167-a40da635424a','e65fe920-7ac4-4642-b3ac-8fd407ebb2ca',NULL),('36431da4-6745-4d99-a167-a40da635424a','f8386e4c-4196-40a0-bfcb-ede24e3c629b',NULL),('47331846-ed58-4407-8aae-2c13bcf954ee','21eefba7-7717-45d5-b175-eaf3f74e3f95',NULL),('47331846-ed58-4407-8aae-2c13bcf954ee','e65fe920-7ac4-4642-b3ac-8fd407ebb2ca',NULL),('6451c292-c452-4d88-8ec4-e1d9b9d6188a','36d01861-bf78-4e0e-a14b-8f1dd167c6dd',NULL),('6451c292-c452-4d88-8ec4-e1d9b9d6188a','d9cdeb50-bbab-484a-8d8e-13f8c421f51f',NULL),('722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','36d01861-bf78-4e0e-a14b-8f1dd167c6dd',NULL),('722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','d9cdeb50-bbab-484a-8d8e-13f8c421f51f',NULL);
 /*!40000 ALTER TABLE `project_tools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,6 +88,7 @@ CREATE TABLE `projects` (
   `updated_at` datetime NOT NULL,
   `rate` float DEFAULT '0',
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
   KEY `category_id` (`category_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
@@ -101,7 +102,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES ('edumy','Edumy is where your learning journey in tech field starts you can learn, apply, notice your weaknesses and get rid of them',NULL,NULL,'8fba647d-5fb8-48de-bc1f-0688dad93327','11ff296e-cf0f-439b-9053-4a99bec90e18','07f1fa56-3984-460b-ac6d-ff48ea46d227','2024-09-06 15:34:51','2024-09-06 16:00:54',0),('project-X','this project is all about using rest apis to get data from all over the world by using REST APIs and also show the resluts in a user friendly way',NULL,NULL,'aae7bcb8-c100-4b0d-b520-ed9496579e4e','11ff296e-cf0f-439b-9053-4a99bec90e18','47331846-ed58-4407-8aae-2c13bcf954ee','2024-09-06 15:21:36','2024-09-06 16:00:54',0),('fedora','Fedora is an online app used to facilitate the process of ordering food from all favourite restaurants',NULL,NULL,'78138635-226d-4b13-9a3d-9201bb0823e0','367ead45-5cf0-4f64-9f0e-764c3b3ccbba','6451c292-c452-4d88-8ec4-e1d9b9d6188a','2024-09-06 15:21:36','2024-09-06 16:00:54',0),('stormy','Stormy is an online platform for video editing it allows editors to unleash their best creativity ',NULL,NULL,'1b2e6ae5-19cf-43c2-905b-8ae241290bc0','dfde6636-f2df-43a6-9dfc-3cfae5ce32a6','722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','2024-09-06 15:21:36','2024-09-06 15:21:36',0);
+INSERT INTO `projects` VALUES ('edumy','Edumy is where your learning journey in tech field starts you can learn, apply, notice your weaknesses and get rid of them',NULL,NULL,'8fba647d-5fb8-48de-bc1f-0688dad93327','11ff296e-cf0f-439b-9053-4a99bec90e18','07f1fa56-3984-460b-ac6d-ff48ea46d227','2024-09-06 15:34:51','2024-09-14 14:54:37',0),('galaxy',NULL,NULL,NULL,'aae7bcb8-c100-4b0d-b520-ed9496579e4e','11ff296e-cf0f-439b-9053-4a99bec90e18','36431da4-6745-4d99-a167-a40da635424a','2024-09-14 18:44:12','2024-09-14 18:44:12',3.5),('project-X','this project is all about using rest apis to get data from all over the world by using REST APIs and also show the resluts in a user friendly way',NULL,NULL,'aae7bcb8-c100-4b0d-b520-ed9496579e4e','11ff296e-cf0f-439b-9053-4a99bec90e18','47331846-ed58-4407-8aae-2c13bcf954ee','2024-09-06 15:21:36','2024-09-06 16:00:54',0),('fedora','Fedora is an online app used to facilitate the process of ordering food from all favourite restaurants',NULL,NULL,'78138635-226d-4b13-9a3d-9201bb0823e0','367ead45-5cf0-4f64-9f0e-764c3b3ccbba','6451c292-c452-4d88-8ec4-e1d9b9d6188a','2024-09-06 15:21:36','2024-09-06 16:00:54',0),('stormy','Stormy is an online platform for video editing it allows editors to unleash their best creativity ',NULL,NULL,'1b2e6ae5-19cf-43c2-905b-8ae241290bc0','dfde6636-f2df-43a6-9dfc-3cfae5ce32a6','722a6d51-33d0-43c7-bd0e-4dd6a9a6f1cb','2024-09-06 15:21:36','2024-09-06 15:21:36',0);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +128,7 @@ CREATE TABLE `tools` (
 
 LOCK TABLES `tools` WRITE;
 /*!40000 ALTER TABLE `tools` DISABLE KEYS */;
-INSERT INTO `tools` VALUES ('REST APIs','0a18eefe-76f6-4aff-9a87-45d9a7ecf82d','2024-09-06 13:01:16','2024-09-06 13:01:16'),('dataDog','21eefba7-7717-45d5-b175-eaf3f74e3f95','2024-09-06 13:01:16','2024-09-06 13:01:16'),('docker','28657e8c-e8a8-4acc-b954-bf8e90956187','2024-09-06 13:01:16','2024-09-06 13:01:16'),('pyTorch','36d01861-bf78-4e0e-a14b-8f1dd167c6dd','2024-09-06 13:01:16','2024-09-06 13:01:16'),('sqlalchemy','5a2805d6-7b49-44fe-a7bb-25ad59fd3350','2024-09-06 13:01:16','2024-09-06 13:01:16'),('html','848f1c24-aaa8-4847-b8a0-b528fe3f7503','2024-09-06 13:01:16','2024-09-06 13:01:16'),('redis','949280a4-7821-4893-b121-3494e6623c01','2024-09-06 13:01:16','2024-09-06 13:01:16'),('Flask','d5449a4a-0238-484b-8879-5963008996bb','2024-09-06 13:01:16','2024-09-06 13:01:16'),('scikit-learn','d9cdeb50-bbab-484a-8d8e-13f8c421f51f','2024-09-06 13:01:16','2024-09-06 13:01:16'),('jinja','e65fe920-7ac4-4642-b3ac-8fd407ebb2ca','2024-09-06 13:01:16','2024-09-06 13:01:16'),('Nginx','f8386e4c-4196-40a0-bfcb-ede24e3c629b','2024-09-06 13:01:16','2024-09-06 13:01:16');
+INSERT INTO `tools` VALUES ('REST APIs','0a18eefe-76f6-4aff-9a87-45d9a7ecf82d','2024-09-06 13:01:16','2024-09-06 13:01:16'),('dataDog','21eefba7-7717-45d5-b175-eaf3f74e3f95','2024-09-06 13:01:16','2024-09-06 13:01:16'),('docker','28657e8c-e8a8-4acc-b954-bf8e90956187','2024-09-06 13:01:16','2024-09-06 13:01:16'),('pyTorch','36d01861-bf78-4e0e-a14b-8f1dd167c6dd','2024-09-06 13:01:16','2024-09-06 13:01:16'),('sqlalchemy','5a2805d6-7b49-44fe-a7bb-25ad59fd3350','2024-09-06 13:01:16','2024-09-06 13:01:16'),('html','848f1c24-aaa8-4847-b8a0-b528fe3f7503','2024-09-06 13:01:16','2024-09-06 13:01:16'),('redis','949280a4-7821-4893-b121-3494e6623c01','2024-09-06 13:01:16','2024-09-06 13:01:16'),('Flask','d5449a4a-0238-484b-8879-5963008996bb','2024-09-06 13:01:16','2024-09-06 13:01:16'),('scikit-learn','d9cdeb50-bbab-484a-8d8e-13f8c421f51f','2024-09-06 13:01:16','2024-09-06 13:01:16'),('jinja','e65fe920-7ac4-4642-b3ac-8fd407ebb2ca','2024-09-06 13:01:16','2024-09-06 13:01:16'),('ss','e6dbc4a8-4a21-4ace-a18e-7027c49c59af','2024-09-14 14:51:46','2024-09-14 14:52:13'),('Nginx','f8386e4c-4196-40a0-bfcb-ede24e3c629b','2024-09-06 13:01:16','2024-09-06 13:01:16');
 /*!40000 ALTER TABLE `tools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-12 13:00:04
+-- Dump completed on 2024-09-14 21:45:17

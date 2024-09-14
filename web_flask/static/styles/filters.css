@@ -43,7 +43,7 @@
 .search-bar .drop_down {
     background-color: rgb(154, 228, 138);
     position: absolute;
-    height: 160px;
+    height: 200px;
     top: 100%;
     width: 90%;
     min-width: 200px;

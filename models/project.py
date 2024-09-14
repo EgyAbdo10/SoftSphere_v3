@@ -20,11 +20,12 @@ if storage_type == "db":
                           Column("tool_version", String(60)
                                 ))
 
+
 class Project(BaseModel, Base):
     """create the Project model"""
     if storage_type == "db": # meaning the storage engine is db
         __tablename__ = "projects"
-        name = Column("name", String(60), nullable=False)
+        name = Column("name", String(60), nullable=False, unique=True)
         description = Column("description", String(255), nullable=True)
         video_url = Column("video_url", String(255), nullable=True)
         #   video_url --> if the image is on device use the following naming convention:
@@ -49,7 +50,7 @@ class Project(BaseModel, Base):
         description = ""
         video_url = ""
         images = []
-        category = ""
+        category_id = ""
         user_id = ""
         rate = 0.0 # must be between 0 and 5
         tools = []

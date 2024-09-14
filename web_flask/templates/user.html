@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>user</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,300..900;1,300..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=New+Amsterdam&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <section class="user">
+                {% if user.image_url %}
+                <img class="photo" src="{{ url_for('static', filename='images/' + (user.image_url | default('None'))) }}"></img>
+                {% else %}
+                <img class="photo"></img>
+                {% endif %}
+                <h2 class="name">{{ user.username }}</h2>
+                <div class="info">
+                    <p class="bio">{{ user.bio }}</p>
+                    <p><span>Contact-info:</span></p>
+                    <div class="contact-info">
+                        <a href="{{ user.linkedin_url }}" target="_blank"><img class="linkedin" src="{{ url_for('static', filename='images/linkedin_icon.png') }}" alt="linkedin icon"></a>
+                        <a href="{{ user.github_url }}" target="_blank"><img class="github" src="{{ url_for('static', filename='images/github_icon.png') }}" alt="github icon"></a>
+                        <a href="mailto:{{ user.email }}" target="_blank"><img class="gmail" src="{{ url_for('static', filename='images/gmail_icon.png') }}" alt="gmail icon"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="projects">
+                <h1>User projects</h1>
+                {% for project in user.projects %}
+                <article class="{{ project.name }}">
+                    <img class="poster" src="{{ url_for('static', filename='images/' + project.name + '_poster.jpg') }}">
+                    </img>
+                    <div class="project-info">
+                        <p class="name">{{ project.name }}</p>
+                        <p class="category"><span>Category:</span> {{ project.category.name }}</p>
+                        <p class="rate"><span>Rate:</span> {{ project.rate }} / 5.0</p>
+                        <p class="description"><span>Description:</span><br>{{ project.description }}</p>
+                        <p class="created_at"><span>created at:</span> {{ project.created_at.strftime("%Y-%m-%d") }}</p>
+                        <p class="last_updated"><span>last updated at:</span> {{ project.updated_at.strftime("%Y-%m-%d") }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </section>
+        </div>
+    </body>
+</html>
