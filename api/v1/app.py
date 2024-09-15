@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 from os import getenv
 from models import storage
 from api.v1.views import app_views
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
+CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
+CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 # Flag to check if setup has been run
 setup_done = False
@@ -35,5 +38,5 @@ def not_found(error):
 
 if __name__ == '__main__':
     HOST = getenv('SOS_API_HOST', '0.0.0.0')
-    PORT = int(getenv('SOS_API_PORT', 5000))
+    PORT = int(getenv('SOS_API_PORT', 5001))
     app.run(debug=True, host=HOST, port=PORT, threaded=True)

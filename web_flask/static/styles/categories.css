@@ -1,11 +1,12 @@
 section.categories {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
-    height: 200px;
+    height: 250px;
     gap: 50px;
     flex-wrap: wrap;
+    padding-top: 50px;
     /* background-color: blue; */
 }
 
@@ -60,6 +61,12 @@ section.categories article img {
     height: 50px;
     /* background-repeat: no-repeat; */
     background-size: cover;
+}
+
+section.categories article.focus {
+    background-color: rgb(29, 121, 4);
+    position: relative;
+    bottom: 10px;
 }
 
 /* addign categories icons */

@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>user</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}?{{ cache_id }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}?{{ cache_id }}">
         <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
@@ -23,9 +23,9 @@
                     <p class="bio">{{ user.bio }}</p>
                     <p><span>Contact-info:</span></p>
                     <div class="contact-info">
-                        <a href="{{ user.linkedin_url }}" target="_blank"><img class="linkedin" src="{{ url_for('static', filename='images/linkedin_icon.png') }}" alt="linkedin icon"></a>
-                        <a href="{{ user.github_url }}" target="_blank"><img class="github" src="{{ url_for('static', filename='images/github_icon.png') }}" alt="github icon"></a>
-                        <a href="mailto:{{ user.email }}" target="_blank"><img class="gmail" src="{{ url_for('static', filename='images/gmail_icon.png') }}" alt="gmail icon"></a>
+                        <a href="{{ user.linkedin_url }}" target="_blank"><img class="linkedin" src="{{ url_for('static', filename='images/linkedin_icon.png') }}?{{ cache_id }}" alt="linkedin icon"></a>
+                        <a href="{{ user.github_url }}" target="_blank"><img class="github" src="{{ url_for('static', filename='images/github_icon.png') }}?{{ cache_id }}" alt="github icon"></a>
+                        <a href="mailto:{{ user.email }}" target="_blank"><img class="gmail" src="{{ url_for('static', filename='images/gmail_icon.png') }}?{{ cache_id }}" alt="gmail icon"></a>
                     </div>
                 </div>
             </section>
@@ -33,10 +33,12 @@
                 <h1>User projects</h1>
                 {% for project in user.projects %}
                 <article class="{{ project.name }}">
-                    <img class="poster" src="{{ url_for('static', filename='images/' + project.name + '_poster.jpg') }}">
+                    <img class="poster" src="{{ url_for('static', filename='images/' + project.name + '_poster.jpg') }}?{{ cache_id }}">
                     </img>
                     <div class="project-info">
-                        <p class="name">{{ project.name }}</p>
+                        <a href="/projects/{{ project.name }}" target="_blank">
+                            <p class="name">{{ project.name }}</p>
+                        </a>
                         <p class="category"><span>Category:</span> {{ project.category.name }}</p>
                         <p class="rate"><span>Rate:</span> {{ project.rate }} / 5.0</p>
                         <p class="description"><span>Description:</span><br>{{ project.description }}</p>

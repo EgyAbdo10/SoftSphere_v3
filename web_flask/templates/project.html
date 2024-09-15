@@ -1,9 +1,9 @@
 <html>
     <head>
         <title>project</title>
-        <link rel="stylesheet" href="../static/styles/similar_projects.css">
-        <link rel="stylesheet" href="../static/styles/index.css">
-        <link rel="stylesheet" href="../static/styles/project_representaion.css">
+        <link rel="stylesheet" href="../static/styles/similar_projects.css?{{ cache_id }}">
+        <link rel="stylesheet" href="../static/styles/index.css?{{ cache_id }}">
+        <link rel="stylesheet" href="../static/styles/project_representaion.css?{{ cache_id }}">
         <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="project_representation">
-            <img class="poster" src="../static/images/{{ project.name }}_poster.jpg">
+            <img class="poster" src="../static/images/{{ project.name }}_poster.jpg?{{ cache_id }}">
             </img>
             <section class="info">
                 <p class="name">{{ project.name }}</p>
@@ -34,21 +34,22 @@
                 </p>
                 <p><span>Contact-info:</span></p>
                 <div class="contact-info">
-                    <a href="{{ project.owner.linkedin_url }}" target="_blank"><img class="linkedin" src="../static/images/linkedin_icon.png" alt="linkedin icon"></a>
-                    <a href="{{ project.owner.github_url }}" target="_blank"><img class="github" src="../static/images/github_icon.png" alt="github icon"></a>
-                    <a href="mailto:{{ project.owner.email }}" target="_blank"><img class="gmail" src="../static/images/gmail_icon.png" alt="gmail icon"></a>
+                    <a href="{{ project.owner.linkedin_url }}" target="_blank"><img class="linkedin" src="../static/images/linkedin_icon.png? {{ cache_id }}" alt="linkedin icon"></a>
+                    <a href="{{ project.owner.github_url }}" target="_blank"><img class="github" src="../static/images/github_icon.png?{{ cache_id }}" alt="github icon"></a>
+                    <a href="mailto:{{ project.owner.email }}" target="_blank"><img class="gmail" src="../static/images/gmail_icon.png?{{ cache_id }}" alt="gmail icon"></a>
                 </div>
             </section>
         </div>
         <div class="explore_text">Similar projects</div>
         <section class="explore">
             {% for cat_project in category_projects %}
-            <a href="/projects/{{ cat_project.name }}" target="_blank">
                 <article class="{{ cat_project.name }}">
-                    <div class="poster">
-                    </div>
+                    <img class="poster" src="../static/images/{{ cat_project.name }}_poster.jpg?{{ cache_id }}">
+                    </img>
                     <div class="data">
-                        <p class="project-name">{{ cat_project.name }}</p>
+                        <a href="/projects/{{ cat_project.name }}" target="_blank">
+                            <p class="project-name">{{ cat_project.name }}</p>
+                        </a>
                         <p class="category">Category: {{ cat_project.category.name }}</p>
                         <p class="developer">Developer: {{ cat_project.owner.username }}</p>
                         <p class="tools">tools: 
@@ -67,7 +68,6 @@
                         </div>
                     </div>
                 </article>
-            </a>
             {% endfor %}
         </section>    
     </body>

@@ -23,7 +23,8 @@
     font-weight: 10px;
     font-style: normal;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
 }
 
@@ -36,8 +37,27 @@
     font-optical-sizing: auto;
     font-style: normal;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
+}
+
+.search-bar .tool_filter div.filtered {
+    font-size: 1rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: max-content;
+}
+
+.search-bar .category_filter div.filtered {
+        font-size: 1rem;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: max-content;
 }
 
 .search-bar .drop_down {

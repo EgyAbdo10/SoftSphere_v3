@@ -40,9 +40,17 @@ class Project(BaseModel, Base):
         tools = relationship("Tool", secondary="project_tools", viewonly=False)
 
         def to_dict(self):
+            """
+            get the tools names and category name of projects
+            besides other attributes
+            """
+            from models import storage
             tool_ids = [tool.id for tool in self.tools]
             dict_repr = super().to_dict()
-            dict_repr["tools"] = tool_ids
+            tool_names = [storage.find("Tool", tool_id).name for tool_id in tool_ids]
+            dict_repr["tools"] = tool_names
+            category_id = self.category_id
+            dict_repr["category"] = storage.find("Category", category_id).name
             return dict_repr
 
     else:

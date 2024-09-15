@@ -49,7 +49,8 @@ def show_user_projects(username):
         abort(404)
     user = result[0]
     return render_template("user.html",
-                            user=user)
+                            user=user,
+                            cache_id=uuid4())
     
 if __name__ == "__main__":
     app.run(port=5000, host="0.0.0.0", debug=True, threaded=True)

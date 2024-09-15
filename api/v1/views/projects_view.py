@@ -88,7 +88,9 @@ def filter_projects():
 
     projects_list = []
     if len(data) == 0 or ("categories" not in data and
-                          "tools" not in data):
+                          "tools" not in data) or (
+                              len(data["categories"]) == 0 and 
+                              len(data["tools"]) == 0):
         projects_list = list(storage.all("Project").values())
 
     categories = data.get("categories", None)

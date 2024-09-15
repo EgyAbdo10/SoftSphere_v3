@@ -16,12 +16,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,300..900;1,300..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=New+Amsterdam&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="../static/scripts/1-sos.js"></script>
 </head>
 <body>
 	<header class="sticky-header">
 		<div class="logo">SoftSphere</div>
 		<nav class="nav-links">
-			<a href="#home">Home</a>
+			<a href="/">Home</a>
 			<a href="categories.html">Categories</a>
 			<a href="featured.html">Services</a>
 			<a href="how-it-works.html">How It Works</a>
@@ -36,23 +38,25 @@
 		<h1>Find the <span>Perfect Software</span></h1>
 		<h1>and</h1>
 		<h1><span>Hire </span>Top Developers</h1>
-			<div type="text" class="search-bar">
+			<div class="search-bar">
 				<div class="category_filter">
 					<h5>Categories</h5>
+					<div class="filtered">&nbsp;</div>
 					<div class="drop_down">
 						<ul>
 							{% for category in categories %}
-							<li><span>{{ category.name }}</span><input type="checkbox"></li>
+							<li><span>{{ category.name }}</span><input type="checkbox" data-id="{{ category.id }}" data-name="{{ category.name }}"></li>
 							{% endfor %}
 						</ul>
 					</div>
 				</div>
 				<div class="tool_filter">
 					<h5>Tools</h5>
+					<div class="filtered">&nbsp;</div>
 					<div class="drop_down">
 						<ul>
 							{% for tool in tools %}
-							<li><span>{{ tool.name }}</span><input type="checkbox"></li>
+							<li><span>{{ tool.name }}</span><input type="checkbox" data-id="{{ tool.id }}" data-name="{{ tool.name }}"></li>
 							{% endfor %}
 						</ul>
 					</div>
@@ -62,7 +66,7 @@
 	</div>
 	<section class="categories">
 		{% for category in categories %}
-		<article class="{{ category.name }}">
+		<article class="{{ category.name }}" data-id="{{ category.id }}">
 			<img src="../static/images/{{ category.name }}_icon.png?{{ cache_id }}"
 			alt="{{ category.name }}_icon"
 			loading="lazy" decoding="async"></img>
@@ -73,13 +77,14 @@
 	<div class="explore_text">Explore</div>
 	<section class="explore">
 		{% for project in projects %}
-		<a href="/projects/{{ project.name }}" target="_blank">
 			<article class="{{ project.name }}">
 				<img class="poster" src="../static/images/{{ project.name }}_poster.jpg?{{ cache_id }}"
 				loading="lazy" decoding="async">
 				</img>
 				<div class="data">
-					<p class="project-name">{{ project.name }}</p>
+					<a href="/projects/{{ project.name }}" target="_blank">
+						<p class="project-name">{{ project.name }}</p>
+					</a>
 					<p class="category">Category: {{ project.category.name }}</p>
 					<p class="developer"><span>Developer:</span> <a href="/users/{{ project.owner.username }}/projects" targer="_blank">{{ project.owner.username }}</a></p>
 					<p class="tools">tools: 
@@ -98,11 +103,7 @@
 					</div>
 				</div>
 			</article>
-		</a>
 		{% endfor %}
 	</section>
-
-	<!-- Include jQuery here -->
-	<script src="scripts/scripts.js"></script>
 </body>
 </html>
