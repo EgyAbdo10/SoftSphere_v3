@@ -110,6 +110,7 @@ $(function () {
         category_ids = Object.keys(categories_dict);
         tool_ids = Object.keys(tools_dict);
         
+        $("section.categories article.focus").removeClass("focus");
         filter_projects(category_ids, tool_ids);
     });
 
