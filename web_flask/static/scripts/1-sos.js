@@ -114,19 +114,23 @@ $(function () {
         filter_projects(category_ids, tool_ids);
     });
 
+    let categories = [];
+    let index;
     $("section.categories article").on("click", function () {
         const isFocusOn = $(this).hasClass("focus");
-        let category_id = [];
         if (isFocusOn) {
             $(this).removeClass("focus");
-            filter_projects([], []);
+            index = categories.indexOf($(this).attr("data-id"));
+            categories.splice(index, 1);
         }
         else {
-            $("section.categories article.focus").removeClass("focus");
+            // $("section.categories article.focus").removeClass("focus");
             $(this).addClass("focus");
-            category_id.push($(this).attr("data-id"));
-            filter_projects(category_id, []);
+            categories.push($(this).attr("data-id"));
         }
+        // $("section.explore").html("");
+        console.log(categories);
+        filter_projects(categories, []);
     })
 })
 
