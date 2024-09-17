@@ -49,6 +49,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: max-content;
+    min-height: 20px;
 }
 
 .search-bar .category_filter div.filtered {
@@ -58,6 +59,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
         height: max-content;
+        min-height: 20px;
+        /* height: 20px; */
 }
 
 .search-bar .drop_down {

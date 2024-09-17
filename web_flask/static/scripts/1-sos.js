@@ -20,7 +20,7 @@ function display_filtered_categories(categories) {
 
  function filter_projects (categories, tools) {
     $.ajax({
-        url: "http://127.0.0.1:5001/api/v1/project_search",
+        url: "http://softsphere.web-02.maherai.tech/api/v1/project_search",
         type: "POST",
         data: JSON.stringify({
             categories: categories,
@@ -32,7 +32,7 @@ function display_filtered_categories(categories) {
 
                     $.each(projects, (idx, project) => {
                         $.ajax({
-                            url: `http://127.0.0.1:5001/api/v1/users/${project.user_id}`,
+                            url: `http://softsphere.web-02.maherai.tech/api/v1/users/${project.user_id}`,
                             type: "GET",
                             success: (user) => {
             
@@ -58,11 +58,11 @@ function display_filtered_categories(categories) {
                             `);
                         
                             $.each(project.tools, (idx, tool) => {
-                                if (tool == project.tools[-1]) {
-                                    $("section.explore .data .tools").append(`${tool.name},&nbsp;`);
+                                if (tool == project.tools[project.tools.length - 1]) {
+                                    $(`section.explore .${project.name} .data .tools`).append(`${tool}`);
                                 }
                                 else {
-                                    $("section.explore .data .tools").append(`${tool.name}`)
+                                    $(`section.explore .${project.name} .data .tools`).append(`${tool},&nbsp;`)
                                 }
                                 }
                             );
@@ -90,7 +90,7 @@ $(function () {
         display_filtered_tools(Object.values(tools_dict));
     })
 
-    const categories_dict = {};
+    let categories_dict = {};
     $(".category_filter .drop_down input").on("click", function () {
         const isChecked = $(this).is(":checked");
         const category_id = $(this).attr("data-id");
@@ -111,6 +111,7 @@ $(function () {
         tool_ids = Object.keys(tools_dict);
         
         $("section.categories article.focus").removeClass("focus");
+        categories = [];
         filter_projects(category_ids, tool_ids);
     });
 
